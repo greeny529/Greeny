@@ -3,74 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farooq Ahmed - Video Editor Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Farooq Ahmed | AI Content Creator & IT Professional</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-light: #64748b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            padding: 1.2rem 5%;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sections General */
+        section {
+            min-height: 100vh;
+            padding: 100px 5% 50px; /* Top padding accounts for fixed nav */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        /* 1. About Page (Hero Section) */
+        #about {
+            text-align: center;
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero-text p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* 2. Skills Page */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        /* 3. Experience & Projects Page */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .timeline-item h3 {
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* 4. Contact Page */
+        #contact {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* In a full build, you'd add a hamburger menu here */
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .hero-text h2 {
+                font-size: 1.4rem;
+            }
+            section {
+                padding: 120px 5% 50px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Farooq Ahmed</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about" class="logo">Farooq Ahmed</a>
+        <div class="nav-links">
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-    <section id="home" class="hero-section">
-        <h1>Hi, I'm Farooq Ahmed</h1>
-        <h2>Dynamic Video Editor</h2>
-        <p>Crafting visual experiences that captivate and engage.</p>
-        <a href="#portfolio" class="btn">Explore My Work</a>
-    </section>
-
-    <section id="about" class="about-section">
-        <h2>About Me</h2>
-        <p>I am a passionate video editor dedicated to the art of visual storytelling. As a university student, I am constantly exploring new techniques in color grading, motion graphics, and narrative pacing. My goal is to bring ideas to life through dynamic and seamless editing.</p>
-    </section>
-
-    <section id="portfolio" class="portfolio-section">
-        <h2>My Projects</h2>
-        <div class="video-grid">
-            
-            <div class="video-card">
-                <div class="video-placeholder">Project 1</div>
-                <h3>Documentary Cut</h3>
-                <p>A short-form documentary focusing on smooth transitions and audio mixing.</p>
-            </div>
-
-            <div class="video-card">
-                <div class="video-placeholder">Project 2</div>
-                <h3>Social Media Promo</h3>
-                <p>High-energy promotional video optimized for Instagram and TikTok.</p>
-            </div>
-
-            <div class="video-card">
-                <div class="video-placeholder">Project 3</div>
-                <h3>Event Highlight Reel</h3>
-                <p>Capturing the best moments of a live event with beat-synced cuts.</p>
-            </div>
-
+    <!-- 1. ABOUT PAGE -->
+    <section id="about">
+        <div class="hero-text">
+            <h1>Hi, I'm Farooq Ahmed</h1>
+            <h2>Computer Science Student | AI Content Creator | IT Professional</h2>
+            <p>Welcome to my portfolio! I am currently pursuing an Associate Degree Program in Computer Science at Mukabir College. I have a deep passion for the intersection of technology and creativity. With extensive experience in artificial intelligence tools and digital content creation, I specialize in leveraging AI to build modern digital experiences and solve technical problems.</p>
+            <a href="#contact" class="btn">Let's Connect</a>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2>Get In Touch</h2>
-        <p>Looking for an editor for your next project? Let's connect.</p>
-        <form action="#" method="post" class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
+    <!-- 2. SKILLS PAGE -->
+    <section id="skills">
+        <h2 class="section-title">My Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>AI & Content Creation</h3>
+                <p>Extensive experience using advanced AI tools for generation and automation, managing high-capacity cloud storage architectures for AI workflows, and running successful digital channels like AI Stories Crafter.</p>
+            </div>
+            <div class="skill-card">
+                <h3>IT Support & Networking</h3>
+                <p>Strong foundation in Information Technology roles, technical troubleshooting, hardware/software management, and exploring opportunities on platforms like Upwork and Fiverr.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Web & Software Dev</h3>
+                <p>Currently expanding my programming knowledge through my CS degree, focusing on building responsive, user-friendly applications and mastering version control with Git/GitHub.</p>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Farooq Ahmed. University Assignment.</p>
-    </footer>
+    <!-- 3. EXPERIENCE PAGE -->
+    <section id="experience">
+        <h2 class="section-title">Experience & Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Creator & Manager - AI Stories Crafter</h3>
+                <span class="date">Present</span>
+                <p>Directing digital content creation utilizing cutting-edge AI tools to script, generate, and produce engaging media. Managing channel growth, analytics, and community engagement.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Associate Degree in Computer Science</h3>
+                <span class="date">Mukabir College, Gujrat</span>
+                <p>Developing a rigorous academic foundation in computer science principles, algorithms, data structures, and modern software development practices.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Freelance IT Professional</h3>
+                <span class="date">Ongoing</span>
+                <p>Actively engaged with platforms like LinkedIn, Upwork, and Fiverr, monitoring the IT landscape, providing technical solutions, and maintaining IT Support Specialist competencies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CONTACT PAGE -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <p class="contact-info">I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions in the IT and AI space.</p>
+            
+            <p style="margin-top: 2rem;"><strong>Email:</strong> <a href="mailto:your.email@example.com" style="color: var(--primary-color); text-decoration: none;">your.email@example.com</a></p>
+            <p style="margin-top: 1rem;"><strong>Location:</strong> Gujrat, Pakistan</p>
+            
+            <div style="margin-top: 3rem;">
+                <!-- Replace the # with your actual profile links -->
+                <a href="#" class="btn" style="margin-right: 10px;">LinkedIn</a>
+                <a href="https://github.com/farooq" class="btn" style="background-color: #333;">GitHub</a>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
